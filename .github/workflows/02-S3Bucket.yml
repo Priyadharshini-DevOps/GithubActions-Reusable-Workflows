@@ -5,7 +5,7 @@ on:
 jobs:
   Plan_Dev:
     if: github.ref == 'refs/heads/FeatureBranch1'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_plan.yml@FeatureBranch1
+    uses: Priyadharshini-DevOps/GithubActions-Reusable-Workflows/.github/workflows/aws_tf_plan.yml@FeatureBranch1
     with:
       path: S3Bucket
       tf_vars_file: dev.tfvars
@@ -15,7 +15,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@FeatureBranch1
+    uses: Priyadharshini-DevOps/GithubActions-Reusable-Workflows/.github/workflows/aws_tf_apply.yml@FeatureBranch1
     with:
       path: S3Bucket
       tf_vars_file: dev.tfvars
@@ -25,7 +25,7 @@ jobs:
 
   Plan_Uat:
     if: github.ref == 'refs/heads/main'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_plan.yml@main
+    uses: Priyadharshini-DevOps/GithubActions-Reusable-Workflows/.github/workflows/aws_tf_plan.yml@main
     with:
       path: S3Bucket
       tf_vars_file: uat.tfvars
@@ -35,7 +35,7 @@ jobs:
 
   Deploy_Uat:
     needs: Plan_Uat
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@main
+    uses: Priyadharshini-DevOps/GithubActions-Reusable-Workflows/.github/workflows/aws_tf_apply.yml@main
     with:
       path: S3Bucket
       tf_vars_file: uat.tfvars
